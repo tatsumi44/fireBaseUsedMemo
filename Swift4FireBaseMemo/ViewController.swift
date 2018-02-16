@@ -16,10 +16,11 @@ class ViewController: UIViewController,UITableViewDataSource {
     var db: Firestore!
     var mainArray = [[String : Any]]()
     var titles:String!
+    var idArray = [String]()
     
     
     //cellの内容
-   
+    
     
     
     override func viewDidLoad() {
@@ -31,19 +32,18 @@ class ViewController: UIViewController,UITableViewDataSource {
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
-                    
-//                    print(document.data())
+                    self.idArray.append(document.documentID)
+                    //                    print(document.data())
                     self.mainArray.append(document.data())
-//                    print(self)
-                     print(String(describing: type(of: document.data())))
+                    //                    print(String(describing: type(of: document.data())))
                     
-//                    self.mainArray.append(self.array)
-//                    print("\(document.documentID) => \(document.data())")
+                    print("\(document.documentID) => \(document.data())")
                     
                 }
-//                print(self.mainArray)
-                print(self.mainArray[0]["title"] as! String)
-//                print(String(describing: type(of: self.mainArray[0]["title"])))
+                print(self.idArray)
+                print(self.mainArray[0])
+                //                print(self.mainArray[0]["title"] as! String)
+                //                print(String(describing: type(of: self.mainArray[0]["title"])))
             }
         }
     }
