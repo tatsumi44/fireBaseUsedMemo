@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		033491AADBB3E1A3134D255C /* Pods_Swift4FireBaseMemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1DBFA88316C882C9A24D327 /* Pods_Swift4FireBaseMemo.framework */; };
 		B90A4C8B2036DE4800EA65C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90A4C8A2036DE4800EA65C9 /* AppDelegate.swift */; };
 		B90A4C8D2036DE4900EA65C9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90A4C8C2036DE4900EA65C9 /* ViewController.swift */; };
 		B90A4C902036DE4900EA65C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B90A4C8E2036DE4900EA65C9 /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		75916B3662E85C4B617D8670 /* Pods-Swift4FireBaseMemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift4FireBaseMemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swift4FireBaseMemo/Pods-Swift4FireBaseMemo.release.xcconfig"; sourceTree = "<group>"; };
 		B90A4C872036DE4800EA65C9 /* Swift4FireBaseMemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swift4FireBaseMemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B90A4C8A2036DE4800EA65C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B90A4C8C2036DE4900EA65C9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +26,8 @@
 		B90A4C942036DE4900EA65C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B90A4C962036DE4900EA65C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B90A4C9C2036E00E00EA65C9 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		CEDA88F042EFA43A3AF83394 /* Pods-Swift4FireBaseMemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift4FireBaseMemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Swift4FireBaseMemo/Pods-Swift4FireBaseMemo.debug.xcconfig"; sourceTree = "<group>"; };
+		D1DBFA88316C882C9A24D327 /* Pods_Swift4FireBaseMemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swift4FireBaseMemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				033491AADBB3E1A3134D255C /* Pods_Swift4FireBaseMemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		99CBCD08F3F7955614FA5E73 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D1DBFA88316C882C9A24D327 /* Pods_Swift4FireBaseMemo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B90A4C7E2036DE4800EA65C9 = {
 			isa = PBXGroup;
 			children = (
 				B90A4C892036DE4800EA65C9 /* Swift4FireBaseMemo */,
 				B90A4C882036DE4800EA65C9 /* Products */,
+				BFB3FDB086D48D7176ED5270 /* Pods */,
+				99CBCD08F3F7955614FA5E73 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +82,15 @@
 			path = Swift4FireBaseMemo;
 			sourceTree = "<group>";
 		};
+		BFB3FDB086D48D7176ED5270 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CEDA88F042EFA43A3AF83394 /* Pods-Swift4FireBaseMemo.debug.xcconfig */,
+				75916B3662E85C4B617D8670 /* Pods-Swift4FireBaseMemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B90A4C992036DE4900EA65C9 /* Build configuration list for PBXNativeTarget "Swift4FireBaseMemo" */;
 			buildPhases = (
+				9856D4EDB581CCB56545423C /* [CP] Check Pods Manifest.lock */,
 				B90A4C832036DE4800EA65C9 /* Sources */,
 				B90A4C842036DE4800EA65C9 /* Frameworks */,
 				B90A4C852036DE4800EA65C9 /* Resources */,
+				46790D9EE0BC5B120459679B /* [CP] Embed Pods Frameworks */,
+				44712DA174E9ED80AE39E686 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -133,6 +160,76 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		44712DA174E9ED80AE39E686 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Swift4FireBaseMemo/Pods-Swift4FireBaseMemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		46790D9EE0BC5B120459679B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Swift4FireBaseMemo/Pods-Swift4FireBaseMemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Swift4FireBaseMemo/Pods-Swift4FireBaseMemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9856D4EDB581CCB56545423C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Swift4FireBaseMemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B90A4C832036DE4800EA65C9 /* Sources */ = {
@@ -276,6 +373,7 @@
 		};
 		B90A4C9A2036DE4900EA65C9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CEDA88F042EFA43A3AF83394 /* Pods-Swift4FireBaseMemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -291,6 +389,7 @@
 		};
 		B90A4C9B2036DE4900EA65C9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 75916B3662E85C4B617D8670 /* Pods-Swift4FireBaseMemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
