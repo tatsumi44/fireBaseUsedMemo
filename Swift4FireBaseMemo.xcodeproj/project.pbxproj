@@ -14,6 +14,7 @@
 		B90A4C922036DE4900EA65C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B90A4C912036DE4900EA65C9 /* Assets.xcassets */; };
 		B90A4C952036DE4900EA65C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B90A4C932036DE4900EA65C9 /* LaunchScreen.storyboard */; };
 		B90A4C9D2036E00E00EA65C9 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90A4C9C2036E00E00EA65C9 /* RegisterViewController.swift */; };
+		B90E604D20370067000C04AF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B90E604C20370067000C04AF /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		B90A4C942036DE4900EA65C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B90A4C962036DE4900EA65C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B90A4C9C2036E00E00EA65C9 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		B90E604C20370067000C04AF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CEDA88F042EFA43A3AF83394 /* Pods-Swift4FireBaseMemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift4FireBaseMemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Swift4FireBaseMemo/Pods-Swift4FireBaseMemo.debug.xcconfig"; sourceTree = "<group>"; };
 		D1DBFA88316C882C9A24D327 /* Pods_Swift4FireBaseMemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swift4FireBaseMemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -71,6 +73,7 @@
 		B90A4C892036DE4800EA65C9 /* Swift4FireBaseMemo */ = {
 			isa = PBXGroup;
 			children = (
+				B90E604C20370067000C04AF /* GoogleService-Info.plist */,
 				B90A4C8A2036DE4800EA65C9 /* AppDelegate.swift */,
 				B90A4C8C2036DE4900EA65C9 /* ViewController.swift */,
 				B90A4C9C2036E00E00EA65C9 /* RegisterViewController.swift */,
@@ -154,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B90A4C952036DE4900EA65C9 /* LaunchScreen.storyboard in Resources */,
+				B90E604D20370067000C04AF /* GoogleService-Info.plist in Resources */,
 				B90A4C922036DE4900EA65C9 /* Assets.xcassets in Resources */,
 				B90A4C902036DE4900EA65C9 /* Main.storyboard in Resources */,
 			);

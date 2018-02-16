@@ -23,7 +23,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="WjS-ta-HAk">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="WjS-ta-HAk">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WjS-ta-HAk" id="ciP-66-zmr">
@@ -38,6 +38,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="hZF-rT-obW">
+                        <barButtonItem key="leftBarButtonItem" title="確認" id="d6C-wh-LRP">
+                            <connections>
+                                <action selector="comfirmButton:" destination="BYZ-38-t0r" id="lnl-DP-n5d"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="0NC-zs-2yp">
                             <connections>
                                 <action selector="addButton:" destination="BYZ-38-t0r" id="p5U-7D-cIO"/>
@@ -99,7 +104,11 @@
                                                 <action selector="backButton:" destination="soo-Ky-Qym" id="CUa-YU-0aj"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="aOk-c8-Rdz"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="aOk-c8-Rdz">
+                                            <connections>
+                                                <action selector="saveButton:" destination="soo-Ky-Qym" id="7YU-ox-nhA"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>

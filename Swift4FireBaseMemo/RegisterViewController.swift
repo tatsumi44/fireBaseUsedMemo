@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class RegisterViewController: UIViewController {
 
@@ -14,11 +15,18 @@ class RegisterViewController: UIViewController {
     
     @IBOutlet weak var contentsTextField: UITextView!
     
+    var db : Firestore!
+    var mainTitle: String!
+    var contents: String!
+
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         contentsTextField.layer.borderColor =  UIColor.black.cgColor
         contentsTextField.layer.borderWidth = 1.0
-        
+//        FirebaseApp.configure()
+        db = Firestore.firestore()
 
         // Do any additional setup after loading the view.
     }
@@ -32,5 +40,29 @@ class RegisterViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func saveButton(_ sender: Any) {
+        addAdaLovelace()
+       
+    }
+    private func addAdaLovelace() {
+        // [START add_ada_lovelace]
+        // Add a new document with a generated ID
+        var ref: DocumentReference? = nil
+        mainTitle = titleTextField.text
+        contents = contentsTextField.text
+        ref = db.collection("main").addDocument(data: [
+            "title": mainTitle,
+            "contents": contents,
+            "Date": Date()
+        ]) { err in
+            if let err = err {
+                print("Error adding document: \(err)")
+            } else {
+                print("Document added with ID: \(ref!.documentID)")
+            }
+        }
 
+        // [END add_ada_lovelace]
+    }
+    
 }
