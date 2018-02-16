@@ -51,8 +51,8 @@ class RegisterViewController: UIViewController {
         mainTitle = titleTextField.text
         contents = contentsTextField.text
         ref = db.collection("main").addDocument(data: [
-            "title": mainTitle,
-            "contents": contents,
+            "title":String(mainTitle),
+            "contents":String(contents),
             "Date": Date()
         ]) { err in
             if let err = err {

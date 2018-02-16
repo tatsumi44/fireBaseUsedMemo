@@ -14,36 +14,57 @@ class ViewController: UIViewController,UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     var db: Firestore!
-    var array:[[String : Any]]!
+    var mainArray = [[String : Any]]()
+    var titles:String!
+    
     
     //cellの内容
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
-        cell?.textLabel?.text = "テスト"
-        return cell!
-    }
-    //cellの数
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
-    }
+   
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.dataSource = self
         db = Firestore.firestore()
         db.collection("main").getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
-                    //                    self.array?.append(document.data())
-                    print("\(document.documentID) => \(document.data())")
+                    
+//                    print(document.data())
+                    self.mainArray.append(document.data())
+//                    print(self)
+                     print(String(describing: type(of: document.data())))
+                    
+//                    self.mainArray.append(self.array)
+//                    print("\(document.documentID) => \(document.data())")
                     
                 }
+//                print(self.mainArray)
+                print(self.mainArray[0]["title"] as! String)
+//                print(String(describing: type(of: self.mainArray[0]["title"])))
             }
         }
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        print("へい")
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        print("へいへい")
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
+        titles = mainArray[indexPath.row]["title"] as! String
+        print(titles)
+        cell?.textLabel?.text = titles
+        return cell!
+    }
+    //cellの数
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(mainArray.count)
+        return mainArray.count
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
