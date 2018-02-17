@@ -18,6 +18,10 @@ class RegisterViewController: UIViewController {
     var db : Firestore!
     var mainTitle: String!
     var contents: String!
+    var cellOfNum: Int!
+    var mainArray = [[String : Any]]()
+    var cellOfArray = [String: Any]()
+    var contentsId: String!
 
     
     
@@ -27,6 +31,14 @@ class RegisterViewController: UIViewController {
         contentsTextField.layer.borderWidth = 1.0
 //        FirebaseApp.configure()
         db = Firestore.firestore()
+        
+        if cellOfNum != nil{
+            titleTextField.text = cellOfArray["title"] as? String
+            contentsTextField.text = cellOfArray["contents"] as? String
+        }else{
+            titleTextField.text = ""
+            contentsTextField.text = ""
+        }
 
         // Do any additional setup after loading the view.
     }
@@ -47,21 +59,42 @@ class RegisterViewController: UIViewController {
     private func addAdaLovelace() {
         // [START add_ada_lovelace]
         // Add a new document with a generated ID
-        var ref: DocumentReference? = nil
-        mainTitle = titleTextField.text
-        contents = contentsTextField.text
-        ref = db.collection("main").addDocument(data: [
-            "title":String(mainTitle),
-            "contents":String(contents),
-            "Date": Date()
-        ]) { err in
-            if let err = err {
-                print("Error adding document: \(err)")
-            } else {
-                print("Document added with ID: \(ref!.documentID)")
+        //新規登録と更新の判定
+        if cellOfNum != nil{
+            // update処理
+            let ref = db.collection("main").document(contentsId)
+            mainTitle = titleTextField.text
+            contents = contentsTextField.text
+            ref.updateData([
+                "title":String(mainTitle),
+                "contents":String(contents),
+                "Date": Date()
+            ]) { err in
+                if let err = err {
+                    print("Error updating document: \(err)")
+                } else {
+                    print("Document successfully updated")
+                }
             }
+            
+        }else{
+            //新規登録処理
+            var ref: DocumentReference? = nil
+            mainTitle = titleTextField.text
+            contents = contentsTextField.text
+            ref = db.collection("main").addDocument(data: [
+                "title":String(mainTitle),
+                "contents":String(contents),
+                "Date": Date()
+            ]) { err in
+                if let err = err {
+                    print("Error adding document: \(err)")
+                } else {
+                    print("Document added with ID: \(ref!.documentID)")
+                }
+            }
+            
         }
-
         // [END add_ada_lovelace]
     }
     

@@ -50,7 +50,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tableView" destination="c37-vO-JIY" id="D9W-Vx-Jtb"/>
+                        <outlet property="table" destination="c37-vO-JIY" id="UCB-JR-OtF"/>
                         <segue destination="soo-Ky-Qym" kind="presentation" identifier="Register" id="HLr-af-mS7"/>
                     </connections>
                 </viewController>
