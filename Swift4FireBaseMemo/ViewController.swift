@@ -31,6 +31,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         
     }
     override func viewDidAppear(_ animated: Bool) {
+        //データベースからデータを取得し、表示
         if mainArray.isEmpty == false{
             mainArray = [[String : Any]]()
             idArray = [String]()
@@ -107,7 +108,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
             return mainArray.count
         }else{
             print("cellの数")
-            return 10
+            return 0
         }
     }
     override func didReceiveMemoryWarning() {
