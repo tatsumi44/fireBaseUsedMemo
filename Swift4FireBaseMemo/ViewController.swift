@@ -108,7 +108,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
             return mainArray.count
         }else{
             print("cellの数")
-            return 0
+            return mainArray.count
         }
     }
     override func didReceiveMemoryWarning() {
