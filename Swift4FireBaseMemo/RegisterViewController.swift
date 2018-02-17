@@ -23,13 +23,10 @@ class RegisterViewController: UIViewController {
     var cellOfArray = [String: Any]()
     var contentsId: String!
 
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         contentsTextField.layer.borderColor =  UIColor.black.cgColor
         contentsTextField.layer.borderWidth = 1.0
-//        FirebaseApp.configure()
         db = Firestore.firestore()
         
         if cellOfNum != nil{
@@ -39,13 +36,11 @@ class RegisterViewController: UIViewController {
             titleTextField.text = ""
             contentsTextField.text = ""
         }
-
         // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        
     }
     
     @IBAction func backButton(_ sender: Any) {
@@ -54,11 +49,8 @@ class RegisterViewController: UIViewController {
     
     @IBAction func saveButton(_ sender: Any) {
         addAdaLovelace()
-       
     }
     private func addAdaLovelace() {
-        // [START add_ada_lovelace]
-        // Add a new document with a generated ID
         //新規登録と更新の判定
         if cellOfNum != nil{
             // update処理
@@ -76,7 +68,6 @@ class RegisterViewController: UIViewController {
                     print("Document successfully updated")
                 }
             }
-            
         }else{
             //新規登録処理
             var ref: DocumentReference? = nil
@@ -93,7 +84,6 @@ class RegisterViewController: UIViewController {
                     print("Document added with ID: \(ref!.documentID)")
                 }
             }
-            
         }
         // [END add_ada_lovelace]
     }

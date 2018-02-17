@@ -24,17 +24,17 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     var contentsId: String!
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         table.dataSource = self
         table.delegate = self
-       
+        
     }
     override func viewDidAppear(_ animated: Bool) {
-        if mainArray != nil{
+        if mainArray.isEmpty == false{
             mainArray = [[String : Any]]()
             idArray = [String]()
+            cellOfNum = nil
             db = Firestore.firestore()
             db.collection("main").getDocuments() { (querySnapshot, err) in
                 if let err = err {
@@ -46,10 +46,10 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
                         print("\(document.documentID) => \(document.data())")
                     }
                     self.table.reloadData()
-                    print(self.idArray)
-                    print(self.mainArray[0])
+                    print(self.mainArray)
                 }
             }
+            print("存在するよ")
             
         }else{
             db = Firestore.firestore()
@@ -60,11 +60,10 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
                     for document in querySnapshot!.documents {
                         self.idArray.append(document.documentID)
                         self.mainArray.append(document.data())
-                        print("\(document.documentID) => \(document.data())")
+                        //                        print("\(document.documentID) => \(document.data())")
                     }
                     self.table.reloadData()
-                    print(self.idArray)
-                    print(self.mainArray[0])
+                    
                 }
             }
             print("へい")
@@ -78,8 +77,10 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         cellOfNum = indexPath.row
         print(cellOfArray)
         print(contentsId)
+        //画面遷移
         performSegue(withIdentifier: "Register", sender: nil)
     }
+    //RegisterViewControllerに値を渡す
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Register"{
             let registerViewContoroller = segue.destination as! RegisterViewController
@@ -87,33 +88,52 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
             registerViewContoroller.cellOfArray = self.cellOfArray
             registerViewContoroller.contentsId = self.contentsId
         }
-        
     }
     //cellの内容
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
-        titles = mainArray[indexPath.row]["title"] as! String
-        print("cellの内容")
-        cell?.textLabel?.text = titles
+        if mainArray.isEmpty == false{
+            titles = mainArray[indexPath.row]["title"] as! String
+            cell?.textLabel?.text = titles
+        }else{
+            print("何もないよ")
+        }
         return cell!
     }
     //cellの数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("cellの数")
-        return mainArray.count
+        
+        if mainArray.isEmpty == false{
+            return mainArray.count
+        }else{
+            print("cellの数")
+            return 10
+        }
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    //スワイプして削除
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            contentsId = idArray[indexPath.row]
+            db.collection("main").document(contentsId).delete() { err in
+                if let err = err {
+                    print("Error removing document: \(err)")
+                } else {
+                    print("Document successfully removed!")
+                    self.mainArray.remove(at: indexPath.row)
+                    tableView.deleteRows(at: [indexPath], with: .fade)
+                }
+            }
+            
+        }
+    }
+    //新規登録
     @IBAction func addButton(_ sender: Any) {
         performSegue(withIdentifier: "Register", sender: nil)
     }
-    @IBAction func comfirmButton(_ sender: Any) {
-        
-    }
-    
     
 }
 
